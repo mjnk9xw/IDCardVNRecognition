@@ -7,7 +7,7 @@ from reader.readerid import  detectorid
 from reader.reader import  Predictor
 from vietocr.tool.config import Cfg
 from app import cccd, cmnd
-from face.face import compare_face_cmt_live()
+from face.face import compare_face_cmt_live
 import numpy
 
 """
