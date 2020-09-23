@@ -47,10 +47,12 @@ def printInfo(info_images):
             if key == "id":
                 imgid = Image.fromarray(numpy.uint8(img))
                 s = detectorid.predict(imgid)
-                infors[key].append(s)
+                idstr = str([i for i in s.split() if i.isdigit()])
+                infors[key] = idstr
             else:
                 s = reader.predict(img)
                 infors[key].append(s)
+                
     que_quan_0 = infors['que_quan'][0]
     que_quan_1 = ''
     noi_thuong_tru_0 = infors['noi_thuong_tru'][0]
@@ -61,7 +63,7 @@ def printInfo(info_images):
         noi_thuong_tru_1 = infors['noi_thuong_tru'][1]        
 
     try:
-        print("id: " + infors['id'][0].replace(" ",""))
+        print("id: " + infors['id'].replace(" ",""))
         print("name: " + infors['full_name'][0])
         print("date_of_birth: " + infors['date_of_birth'][0])
         print("que_quan_0: " + que_quan_0)
@@ -81,8 +83,7 @@ def predict(filename):
     start = time.time()
 
     cccd_result = cccd.predictcccd(channel,stub, filename)
-    # or (cccd_result.keys()['id'] == None or cccd_result.keys()['chan_dung'] == None)
-    if 'id' in cccd_result:
+    if 'id' in cccd_result and 'full_name' in cccd_result:
         printInfo(cccd_result)
     else:
         print("check image is cmnd")
