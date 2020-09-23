@@ -7,6 +7,7 @@ from reader.readerid import  detectorid
 from reader.reader import  Predictor
 from vietocr.tool.config import Cfg
 from app import cccd, cmnd
+from face.face import compare_face_cmt_live()
 import numpy
 
 """
@@ -24,7 +25,7 @@ config['predictor']['beamsearch'] = False
 reader = Predictor(config)
 
 
-def printInfo(info_images):
+def printInfo(info_images, is_compareface=False, facelive=''):
     """
     =====================================
     ==== Reader infors from infors image
@@ -32,7 +33,11 @@ def printInfo(info_images):
     """
     keys = list(info_images.keys())
     try:
-        keys.remove("chan_dung")
+        if is_compareface:
+            # compare_face_cmt_live()
+            print("compare_face")
+        else:
+            keys.remove("chan_dung")
     except Exception as e:
         print("Can not chan dung error = ",e)
         return
@@ -88,7 +93,7 @@ def printInfo(info_images):
         print("Can full info error = ",e)
         return
 
-def predict(filename):
+def predict(filename, is_compareface=False, facelive=''):
     print("===========================================")
     start = time.time()
     channel = grpc.insecure_channel("localhost:8500")
@@ -98,12 +103,12 @@ def predict(filename):
 
     cccd_result = cccd.predictcccd(channel,stub, filename)
     if 'id' in cccd_result and 'full_name' in cccd_result:
-        printInfo(cccd_result)
+        printInfo(cccd_result,is_compareface,facelive)
     else:
         print("check image is cmnd")
         cmnd_result = cmnd.predictcmnd(channel,stub, filename)
         if 'id' in cmnd_result:
-            printInfo(cmnd_result)
+            printInfo(cmnd_result,is_compareface,facelive)
         else:
             print("Not detect image")
 
