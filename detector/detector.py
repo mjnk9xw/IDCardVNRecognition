@@ -1,4 +1,4 @@
-import tensorflow as tf
+# import tensorflow as tf
 import numpy as np
 import cv2
 from core.utils import  nms
@@ -123,9 +123,13 @@ class Detector:
         dict_address['noi_thuong_tru'].append(bbox_3)
         return dict_address
 
-    def crop_image(self, original_image, x_min, y_min, x_max, y_max):
-        cropped_image = original_image[y_min:y_max, x_min: x_max]
-        return cropped_image
+    def crop_image(self,key, original_image, x_min, y_min, x_max, y_max):
+        if key == "full_name" or key == "que_quan" or key == "noi_thuong_tru":
+            cropped_image = original_image[y_min:y_max, x_min-20: x_max+20]
+            return cropped_image
+        else:
+            cropped_image = original_image[y_min:y_max, x_min: x_max]
+            return cropped_image
 
     def set_info_images(self, original_image):
         original_height, original_width, _ = original_image.shape
@@ -139,8 +143,11 @@ class Detector:
                 bbox_coor = infor[key][i][:4]
                 score = infor[key][i][4]
 
-                cropped_image = self.crop_image(original_image, int(bbox_coor[0]), int(bbox_coor[1]), int(bbox_coor[2]), int(bbox_coor[3]))
+                cropped_image = self.crop_image(key,original_image, int(bbox_coor[0]), int(bbox_coor[1]), int(bbox_coor[2]), int(bbox_coor[3]))
                 infor_images[key].append({'image': cropped_image, 'score': score})
+
+                # cv2.imwrite('app/static/id/' + key+str(i)+".jpg", cropped_image)
+                # print(key)
 
         self.info_images = infor_images
 

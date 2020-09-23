@@ -49,9 +49,16 @@ def printInfo(info_images):
                 s = detectorid.predict(imgid)
                 idstr = str([i for i in s.split() if i.isdigit()])
                 infors[key] = idstr
+            elif key == "full_name" or key == "noi_thuong_tru" or key == "que_quan":
+                imgid = Image.fromarray(numpy.uint8(img))
+                s = detectorid.predict(imgid)
+                infors[key].append(s)
             else:
                 s = reader.predict(img)
                 infors[key].append(s)
+                # imgid = Image.fromarray(numpy.uint8(img))
+                # s = detectorid.predict(imgid)
+                # infors[key].append(s)
                 
     que_quan_0 = infors['que_quan'][0]
     que_quan_1 = ''
@@ -63,7 +70,14 @@ def printInfo(info_images):
         noi_thuong_tru_1 = infors['noi_thuong_tru'][1]        
 
     try:
-        print("id: " + infors['id'].replace(" ",""))
+        # print("id: " + infors['id'].replace(" ",""))
+        # print("name: " + infors['full_name'][0])
+        # print("date_of_birth: " + infors['date_of_birth'][0])
+        # print("que_quan_0: " + que_quan_0)
+        # print("que_quan_1: " + que_quan_1)
+        # print("noi_thuong_tru_0: " + noi_thuong_tru_0)
+        # print("noi_thuong_tru_1: " + noi_thuong_tru_1)
+        print("id: " + infors['id'])
         print("name: " + infors['full_name'][0])
         print("date_of_birth: " + infors['date_of_birth'][0])
         print("que_quan_0: " + que_quan_0)

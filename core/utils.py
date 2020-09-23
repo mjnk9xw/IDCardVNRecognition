@@ -93,6 +93,30 @@ def get_anchors(anchors_path, tiny=False):
     else:
         return anchors.reshape(3, 3, 2)
 
+def reorient_image(im):
+    try:
+        image_exif = im._getexif()
+        print("image_exif = ",image_exif)
+        image_orientation = image_exif[274]
+        print(image_orientation)
+        if image_orientation in (2, '2'):
+            return im.transpose(Image.FLIP_LEFT_RIGHT)
+        elif image_orientation in (3, '3'):
+            return im.transpose(Image.ROTATE_180)
+        elif image_orientation in (4, '4'):
+            return im.transpose(Image.FLIP_TOP_BOTTOM)
+        elif image_orientation in (5, '5'):
+            return im.transpose(Image.ROTATE_90).transpose(Image.FLIP_TOP_BOTTOM)
+        elif image_orientation in (6, '6'):
+            return im.transpose(Image.ROTATE_270)
+        elif image_orientation in (7, '7'):
+            return im.transpose(Image.ROTATE_270).transpose(Image.FLIP_TOP_BOTTOM)
+        elif image_orientation in (8, '8'):
+            return im.transpose(Image.ROTATE_90)
+        else:
+            return im
+    except (KeyError, AttributeError, TypeError, IndexError):
+        return im
 
 def preprocess_image(image_path, target_size):
     """
@@ -111,9 +135,11 @@ def preprocess_image(image_path, target_size):
         return img, original_image, original_width, original_height
 
     original_image = cv2.imread(image_path)
+    # original_image = reorient_image(original_image)
     original_width, original_height = original_image.shape[1], original_image.shape[0]
 
     img = tf.keras.preprocessing.image.load_img(image_path, target_size=target_size)
+    # img = reorient_image(img)
     img = tf.keras.preprocessing.image.img_to_array(img) / 255.
     img = np.float32(img)
     # convert ndarray to Tensorflow tensor
