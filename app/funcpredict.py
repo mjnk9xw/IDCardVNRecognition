@@ -16,6 +16,7 @@ import numpy
 """
 config = Cfg.load_config_from_name('vgg_transformer')
 # config['weights'] = './models/reader/transformerocr_best.pth'
+# config['weights'] = 'https://drive.google.com/uc?export=download&id=1-olev206xLgXYf7rnwHrcZLxxLg5rs0p'
 config['weights'] = 'https://drive.google.com/uc?export=download&id=1-olev206xLgXYf7rnwHrcZLxxLg5rs0p'
 config['device'] = 'cuda:0'
 # self.device = device

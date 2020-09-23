@@ -32,10 +32,10 @@ class Detector:
 
         # coordinates[i] : (y_min, x_min, y_max, x_max)
         coordinates = pred[:, 0:4]
-        y_mins = coordinates[:, 0:1] * original_height + 10
-        x_mins = coordinates[:, 1:2] * original_width + 10
-        y_maxs = coordinates[:, 2:3] * original_height + 10
-        x_maxs = coordinates[:, 3:4] * original_width + 10
+        y_mins = coordinates[:, 0:1] * original_height
+        x_mins = coordinates[:, 1:2] * original_width
+        y_maxs = coordinates[:, 2:3] * original_height
+        x_maxs = coordinates[:, 3:4] * original_width
 
         scores = pred[:, 4:13]
         classes = np.argmax(scores, axis=-1)

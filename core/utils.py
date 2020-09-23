@@ -4,6 +4,9 @@ import colorsys
 import numpy as np
 import tensorflow as tf
 from core.config import cfg
+import base64
+import io
+from PIL import Image
 
 
 def load_weights(model, weights_file, model_name='yolov4', is_tiny=False):
@@ -96,6 +99,16 @@ def preprocess_image(image_path, target_size):
     :param image_path:
     :return: img, original_width, original_height
     """
+
+    if (not("." in image_path)):
+        img = base64.b64decode(image_path)
+        img = Image.open(io.BytesIO(img))
+        img = np.array(img)
+        original_width, original_height = img.shape[1], img.shape[0]
+        original_image = Image.fromarray(img)
+        img = original_image.resize(target_size, Image.ANTIALIAS)
+        img = np.array(img, np.float32)
+        return img, original_image, original_width, original_height
 
     original_image = cv2.imread(image_path)
     original_width, original_height = original_image.shape[1], original_image.shape[0]
