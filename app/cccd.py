@@ -13,37 +13,7 @@ import grpc
 import numpy as np
 from tensorflow_serving.apis import predict_pb2
 from tensorflow_serving.apis import prediction_service_pb2_grpc
-import time
 from PIL import Image
-
-from reader.reader import  Predictor
-from vietocr.tool.config import Cfg
-"""
-=========================
-== Reader model
-=========================
-"""
-config = Cfg.load_config_from_name('vgg_transformer')
-# config['weights'] = './models/reader/transformerocr_best.pth'
-config['weights'] = 'https://drive.google.com/uc?export=download&id=1-olev206xLgXYf7rnwHrcZLxxLg5rs0p'
-config['device'] = 'cuda:0'
-# self.device = device
-config['predictor']['beamsearch'] = False
-reader = Predictor(config)
-
-app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
-
-def allowed_image(filename):
-
-    if "." not in filename:
-        return False
-
-    ext = filename.rsplit(".", 1)[1]
-
-    if ext.upper() in app.config["ALLOWED_IMAGE_EXTENSIONS"]:
-        return True
-    else:
-        return False
 
 def reorient_image(im):
     im = Image.open(im)
@@ -70,22 +40,17 @@ def reorient_image(im):
     except (KeyError, AttributeError, TypeError, IndexError):
         return im
 
-def predictcccd(channel, stub, request, filename):
-    # print("===========================================")
-    # channel = grpc.insecure_channel("localhost:8500")
-    # stub = prediction_service_pb2_grpc.PredictionServiceStub(channel)
-
-    # request = predict_pb2.PredictRequest()
-    # # model_name
-    # request.model_spec.name = "cropper_model"
-    # # signature name, default is 'serving_default'
-    # request.model_spec.signature_name = "serving_default"
-    # start = time.time()
+def predictcccd(channel, stub, filename):
     """
     =========================================
     ===== Crop and align id card image
     =========================================
     """
+    request = predict_pb2.PredictRequest()
+    # model_name
+    request.model_spec.name = "cropper_model"
+    # signature name, default is 'serving_default'
+    request.model_spec.signature_name = "serving_default"
     filepath = app.config["IMAGE_UPLOADS"]+"/"+filename
     # preprocess image
     img, original_image, original_width, original_height = preprocess_image(filepath, Cropper.TARGET_SIZE)
@@ -108,10 +73,11 @@ def predictcccd(channel, stub, request, filename):
     if cropper.respone_client(threshold_idcard=0.8) == -1:
         return
     elif cropper.respone_client(threshold_idcard=0.8) == 0:
-        print("done cropper => image begin")
+        print("no cropper")
         cv2.imwrite('app/static/aligned_images/' + filename, original_image)
         aligned_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
     else:
+        print("cropper image")
         cropper.set_image(original_image=original_image)
 
         # output of cropper part
@@ -151,83 +117,4 @@ def predictcccd(channel, stub, request, filename):
     detector.set_info_images(original_image=aligned_image)
     # output of detector part
     info_images = getattr(detector, "info_images")
-
-    """
-    =====================================
-    ==== Reader infors from infors image
-    =====================================
-    """
-    keys = list(info_images.keys())
-    try:
-        keys.remove("thoi_han")
-        keys.remove("chan_dung")
-    except Exception as e:
-        print("Can not cmnd, cccd error = ",e)
-        return
-
-    infors = dict()
-
-    # init default value of quoc_tich, dan_toc
-    infors['quoc_tich'] = ""
-    infors['dan_toc'] = ""
-
-    if "quoc_tich" in keys:
-        infors['quoc_tich'] = ["Việt Nam"]
-        keys.remove("quoc_tich")
-
-    if "sex" in keys:
-        info_image = info_images["sex"]
-        infors["sex"] = list()
-        for i in range(len(info_image)):
-            img = info_image[i]['image']
-            s = reader.predict(img)
-            if "Na" in s:
-                infors["sex"].append("Nam")
-            else:
-                infors["sex"].append("Nữ")
-        keys.remove("sex")
-
-    if "dan_toc" in keys:
-        info_image = info_images["dan_toc"]
-        infors["dan_toc"] = list()
-        for i in range(len(info_image)):
-            img = info_image[i]['image']
-            s = reader.predict(img)
-            s = s.split(" ")[-1]
-            infors["dan_toc"].append(s)
-
-        keys.remove("dan_toc")
-
-    for key in keys:
-        infors[key] = list()
-        info_image = info_images[key]
-        for i in range(len(info_image)):
-            img = info_image[i]['image']
-            s = reader.predict(img)
-            infors[key].append(s)
-    que_quan_0 = infors['que_quan'][0]
-    que_quan_1 = ''
-    noi_thuong_tru_0 = infors['noi_thuong_tru'][0]
-    noi_thuong_tru_1 = ''
-    if len(infors['que_quan']) == 2:
-        que_quan_1 = infors['que_quan'][1]
-    if len(infors['noi_thuong_tru']) == 2:
-        noi_thuong_tru_1 = infors['noi_thuong_tru'][1]        
-
-    try:
-        print("id: " + infors['id'][0].replace(" ",""))
-        print("name: " + infors['full_name'][0])
-        print("date_of_birth: " + infors['date_of_birth'][0])
-        print("sex: " + infors['sex'][0])
-        print("quoc_tich: ")
-        print(infors['quoc_tich'])
-        print("dan_toc: " )
-        print(infors['dan_toc'])
-        print("que_quan_0: " + que_quan_0)
-        print("que_quan_1: " + que_quan_1)
-        print("noi_thuong_tru_0: " + noi_thuong_tru_0)
-        print("noi_thuong_tru_1: " + noi_thuong_tru_1)
-        print("filename: " + str(filename))
-    except Exception as e:
-        print("Can full info error = ",e)
-        return 
+    return info_images
