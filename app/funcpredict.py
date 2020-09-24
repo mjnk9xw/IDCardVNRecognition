@@ -106,6 +106,12 @@ def predict(filename, is_compareface=False, facelive=''):
     filepath = app.config["IMAGE_UPLOADS"]+"/"+filename
     rotate(filepath)
 
+    # cmnd_result = cmnd.predictcmnd(channel,stub, filename)
+    # if cmnd_result != None and 'id' in cmnd_result:
+    #     printInfo(cmnd_result,is_compareface,facelive)
+    # else:
+    #     print("Not detect image")
+
     cccd_result = cccd.predictcccd(channel,stub, filename)
     if cccd_result != None and 'id' in cccd_result and 'full_name' in cccd_result:
         printInfo(cccd_result,is_compareface,facelive)

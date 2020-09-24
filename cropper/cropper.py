@@ -40,6 +40,7 @@ class Cropper:
 
         # check quốc huy class 4.0
         classes_in_img = list(set(bboxes[:, 5]))
+        # print("classes_in_img = ",classes_in_img)
         if 4.0 in classes_in_img:
             num_bboxes = len(best_bboxes)
             if num_bboxes < 5:
@@ -66,29 +67,94 @@ class Cropper:
         best_bboxes[i]: (x_min, y_min, x_max, y_max, score, class)
         :return: points : list((top_left, top_right, bottom_left, bottom_right))
         """
-        classes = self.best_bboxes[:, 5]
-        idx = np.argsort(classes)
-        top_left_box, top_right_box, bottom_left_box, bottom_right_box, id_card = self.best_bboxes[idx]
-        print("quoc huy idcard = ",id_card)
+        num_bbxoes = self.best_bboxes.shape[0]
+        if num_bbxoes < 5:
+            classes_in_img = list(set(self.best_bboxes[:, 5]))
+            # print(classes_in_img)
+            # nội suy góc.
+            if 1.0 in classes_in_img and 2.0 in classes_in_img:
+                print("1-2")
+                id1 = list(np.where((self.best_bboxes[:, 5]).astype(int) == 1))
+                id2 = list(np.where((self.best_bboxes[:, 5]).astype(int) == 2))
+                top_right_box = self.best_bboxes[id1]
+                bottom_left_box = self.best_bboxes[id2]
 
-        x_top_left = int(top_left_box[0])
-        y_top_left = int(top_left_box[1])
-        top_left = [x_top_left, y_top_left]
+                x_top_right = int(top_right_box[0][2])
+                y_top_right = int(top_right_box[0][1])
+                top_right = [x_top_right, y_top_right]
 
-        x_top_right = int(top_right_box[2])
-        y_top_right = int(top_right_box[1])
-        top_right = [x_top_right, y_top_right]
+                x_bottom_left = int(bottom_left_box[0][0])
+                y_bottom_left = int(bottom_left_box[0][3])
+                bottom_left = [x_bottom_left, y_bottom_left]
 
-        x_bottom_left = int(bottom_left_box[0])
-        y_bottom_left = int(bottom_left_box[3])
-        bottom_left = [x_bottom_left, y_bottom_left]
+                x_top_left = x_bottom_left
+                y_top_left = y_top_right
+                top_left = [x_top_left, y_top_left]
 
-        x_bottom_right = int(bottom_right_box[0] + bottom_right_box[2])//2
-        y_bottom_right = int(bottom_right_box[1]+bottom_right_box[3])//2
-        bottom_right = [x_bottom_right, y_bottom_right]
+                x_bottom_right = x_top_right
+                y_bottom_right = y_bottom_left
+                bottom_right = [x_bottom_right, y_bottom_right]
 
-        points = list([top_left, top_right, bottom_left, bottom_right])
-        return points
+                points = list([top_left, top_right, bottom_left, bottom_right])
+                return points
+                
+            elif 0.0 in classes_in_img and 3.0 in classes_in_img:
+                print("0-3")
+                id0 = np.where((self.best_bboxes[:, 5]).astype(int) == 0)
+                id3 = np.where((self.best_bboxes[:, 5]).astype(int) == 3)
+                # print(id0,id3)
+                top_left_box = self.best_bboxes[id0]
+                bottom_right_box = self.best_bboxes[id3]
+                # print("top_left_box = ",top_left_box)
+                # print("bottom_right_box = ",bottom_right_box)
+
+                x_top_left = int(top_left_box[0][0])
+                y_top_left = int(top_left_box[0][1])
+                top_left = [x_top_left, y_top_left]
+
+                x_bottom_right = int(bottom_right_box[0][0] + bottom_right_box[0][2])//2
+                y_bottom_right = int(bottom_right_box[0][1] + bottom_right_box[0][3])//2
+                bottom_right = [x_bottom_right, y_bottom_right]
+
+                #ns 
+                x_top_right = x_bottom_right
+                y_top_right = y_top_left
+                top_right = [x_top_right, y_top_right]
+
+                #ns
+                x_bottom_left = x_top_left
+                y_bottom_left = y_bottom_right
+                bottom_left = [x_bottom_left, y_bottom_left]
+                
+                points = list([top_left, top_right, bottom_left, bottom_right])
+                # print(points)
+                return points
+            else:
+                return list()
+        else:
+            classes = self.best_bboxes[:, 5]
+            idx = np.argsort(classes)
+            top_left_box, top_right_box, bottom_left_box, bottom_right_box, id_card = self.best_bboxes[idx]
+            # print("quoc huy idcard = ",id_card)
+
+            x_top_left = int(top_left_box[0])
+            y_top_left = int(top_left_box[1])
+            top_left = [x_top_left, y_top_left]
+
+            x_top_right = int(top_right_box[2])
+            y_top_right = int(top_right_box[1])
+            top_right = [x_top_right, y_top_right]
+
+            x_bottom_left = int(bottom_left_box[0])
+            y_bottom_left = int(bottom_left_box[3])
+            bottom_left = [x_bottom_left, y_bottom_left]
+
+            x_bottom_right = int(bottom_right_box[0] + bottom_right_box[2])//2
+            y_bottom_right = int(bottom_right_box[1]+bottom_right_box[3])//2
+            bottom_right = [x_bottom_right, y_bottom_right]
+
+            points = list([top_left, top_right, bottom_left, bottom_right])
+            return points
 
 
     def respone_client(self, threshold_idcard):
@@ -111,7 +177,13 @@ class Cropper:
             if id_card_score < threshold_idcard:
                 return -1
 
+        # check số góc + quốc huy 
+        # nếu có đủ 4 góc + quốc huy -> chuyển qua cropper
+        # nếu không có đủ 4 góc thì cũng phải 2 góc so le nhau: góc (0.0,3.0) , (1.0,2.0)
         if num_bbxoes < 5:
+            classes_in_img = list(set(self.best_bboxes[:, 5]))
+            if (0.0 in classes_in_img and 3.0 in classes_in_img) or (1.0 in classes_in_img and 2.0 in classes_in_img):
+                return 1
             return 0
         else:
             return 1
