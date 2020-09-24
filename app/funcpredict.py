@@ -101,6 +101,11 @@ def predict(filename, is_compareface=False, facelive=''):
     
     start = time.time()
 
+    from rotation.rotation import rotate
+    from app import app
+    filepath = app.config["IMAGE_UPLOADS"]+"/"+filename
+    rotate(filepath)
+
     cccd_result = cccd.predictcccd(channel,stub, filename)
     if cccd_result != None and 'id' in cccd_result and 'full_name' in cccd_result:
         printInfo(cccd_result,is_compareface,facelive)
