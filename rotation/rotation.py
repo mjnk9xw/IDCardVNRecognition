@@ -9,7 +9,7 @@ def rotate(pathimg):
 
     img_gray = cv2.cvtColor(img_before, cv2.COLOR_BGR2GRAY)
     img_edges = cv2.Canny(img_gray, 100, 100, apertureSize=3)
-    lines = cv2.HoughLinesP(img_edges, 1, math.pi / 180.0, 100, minLineLength=100, maxLineGap=5)
+    lines = cv2.HoughLinesP(img_edges, 1, math.pi / 180.0, 100, minLineLength=100, maxLineGap=50)
 
     angles = []
 
