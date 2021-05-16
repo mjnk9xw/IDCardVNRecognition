@@ -1,0 +1,162 @@
+2021-05-17 05:00:17.997736: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
+2021-05-17 05:00:17.997787: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+INFO:     Started server process [27919]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+File exists: /home/mjnk9xw/.cache/gdown/https-COLON--SLASH--SLASH-drive.google.com-SLASH-uc-QUESTION-id-EQUAL-13327Y1tz1ohsm5YZMyXVMPIOjoOA0OaA
+File exists: /home/mjnk9xw/.cache/gdown/https-COLON--SLASH--SLASH-drive.google.com-SLASH-uc-QUESTION-id-EQUAL-13327Y1tz1ohsm5YZMyXVMPIOjoOA0OaA
+INFO:     127.0.0.1:42470 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42470 - "GET /openapi.json HTTP/1.1" 200 OK
+Angle is 45.0000
+no cropper
+INFO:     127.0.0.1:42474 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
+no cropper
+check image is cmnd
+cropper image
+0-3
+{'idc': '013620532', 'fullname': 'NGUYỄN ĐỨC HẬU', 'dob': '18-09-1998', 'sex': '', 'ethnicity': '', 'national': '', 'country': 'Mai Lâm, Đông Anh, Hà Nội, ', 'address': 'Mai Hiên, Xã Mai Lâm, Đông Anh, Hà Nội Nội'}
+INFO:     127.0.0.1:42488 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42700 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:43094 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:43354 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43354 - "GET /openapi.json HTTP/1.1" 200 OK
+Angle is -88.9270
+cropper image
+0-3
+check image is cmnd
+Not detect image
+total_time:1.1282522678375244
+None
+INFO:     127.0.0.1:43356 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
+/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/cropper/cropper.py:171: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  id_card_box = self.best_bboxes[idx]
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/protocols/http/h11_impl.py", line 396, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/applications.py", line 199, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc from None
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 580, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 241, in handle
+    await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 52, in app
+    response = await func(request)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 202, in app
+    dependant=dependant, values=values, is_coroutine=is_coroutine
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 148, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/api/v1/endpoints/ekyc.py", line 16, in detect_with_stream
+    return CustomerResponse(**response)
+TypeError: ModelMetaclass object argument after ** must be a mapping, not NoneType
+Angle is -88.9270
+cropper image
+0-3
+check image is cmnd
+Not detect image
+total_time:0.9610569477081299
+None
+INFO:     127.0.0.1:43552 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/protocols/http/h11_impl.py", line 396, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/applications.py", line 199, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc from None
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 580, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 241, in handle
+    await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 52, in app
+    response = await func(request)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 202, in app
+    dependant=dependant, values=values, is_coroutine=is_coroutine
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 148, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/api/v1/endpoints/ekyc.py", line 16, in detect_with_stream
+    return CustomerResponse(**response)
+TypeError: ModelMetaclass object argument after ** must be a mapping, not NoneType
+Angle is -66.0116
+cropper image
+INFO:     127.0.0.1:43676 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
+cropper image
+1-2
+[{'image': array([[[183, 186, 177],
+        [183, 187, 178],
+        [183, 188, 178],
+        ...,
+        [162, 171, 174],
+        [162, 171, 174],
+        [163, 172, 175]],
+
+       [[181, 185, 176],
+        [181, 185, 176],
+        [181, 186, 177],
+        ...,
+        [162, 171, 174],
+        [162, 170, 173],
+        [163, 171, 174]],
+
+       [[179, 182, 173],
+        [179, 183, 174],
+        [179, 184, 174],
+        ...,
+        [162, 171, 174],
+        [162, 170, 173],
+        [163, 171, 174]],
+
+       ...,
+
+       [[181, 185, 171],
+        [181, 185, 171],
+        [183, 187, 173],
+        ...,
+        [161, 172, 176],
+        [161, 171, 176],
+        [160, 170, 175]],
+
+       [[181, 185, 171],
+        [182, 186, 172],
+        [184, 189, 174],
+        ...,
+        [162, 173, 177],
+        [161, 172, 176],
+        [160, 170, 175]],
+
+       [[181, 185, 171],
+        [184, 188, 174],
+        [186, 190, 176],
+        ...,
+        [162, 173, 177],
+        [161, 172, 176],
+        [160, 170, 175]]], dtype=uint8), 'score': 0.9997410774230957}]
+{'idc': '001198017205', 'fullname': 'NGUYỄN NGỌC QUÍ', 'dob': '12/06/2003', 'sex': 'nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Cao Xá, Bắc Hà, Lạng Giang, ', 'address': 'Thôn Nam Kì, Bắc Hà, Bắc Hà, Lạng Giang'}
+INFO:     127.0.0.1:43880 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44040 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:48282 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:50002 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
