@@ -73,7 +73,7 @@ class Cropper:
             # print(classes_in_img)
             # nội suy góc.
             if 1.0 in classes_in_img and 2.0 in classes_in_img:
-                print("1-2")
+                # print("1-2")
                 id1 = list(np.where((self.best_bboxes[:, 5]).astype(int) == 1))
                 id2 = list(np.where((self.best_bboxes[:, 5]).astype(int) == 2))
                 top_right_box = self.best_bboxes[id1]
@@ -99,7 +99,7 @@ class Cropper:
                 return points
                 
             elif 0.0 in classes_in_img and 3.0 in classes_in_img:
-                print("0-3")
+                # print("0-3")
                 id0 = np.where((self.best_bboxes[:, 5]).astype(int) == 0)
                 id3 = np.where((self.best_bboxes[:, 5]).astype(int) == 3)
                 # print(id0,id3)

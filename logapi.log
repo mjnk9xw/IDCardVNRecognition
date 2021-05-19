@@ -1,162 +1,564 @@
-2021-05-17 05:00:17.997736: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
-2021-05-17 05:00:17.997787: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-INFO:     Started server process [27919]
+2021-05-18 08:02:51.793303: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
+2021-05-18 08:02:51.827034: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+INFO:     Started server process [7973]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 File exists: /home/mjnk9xw/.cache/gdown/https-COLON--SLASH--SLASH-drive.google.com-SLASH-uc-QUESTION-id-EQUAL-13327Y1tz1ohsm5YZMyXVMPIOjoOA0OaA
 File exists: /home/mjnk9xw/.cache/gdown/https-COLON--SLASH--SLASH-drive.google.com-SLASH-uc-QUESTION-id-EQUAL-13327Y1tz1ohsm5YZMyXVMPIOjoOA0OaA
-INFO:     127.0.0.1:42470 - "GET /docs HTTP/1.1" 200 OK
-INFO:     127.0.0.1:42470 - "GET /openapi.json HTTP/1.1" 200 OK
-Angle is 45.0000
-no cropper
-INFO:     127.0.0.1:42474 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
-no cropper
-check image is cmnd
-cropper image
-0-3
-{'idc': '013620532', 'fullname': 'NGUYỄN ĐỨC HẬU', 'dob': '18-09-1998', 'sex': '', 'ethnicity': '', 'national': '', 'country': 'Mai Lâm, Đông Anh, Hà Nội, ', 'address': 'Mai Hiên, Xã Mai Lâm, Đông Anh, Hà Nội Nội'}
-INFO:     127.0.0.1:42488 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
-INFO:     127.0.0.1:42700 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
-INFO:     127.0.0.1:43094 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
-INFO:     127.0.0.1:43354 - "GET /docs HTTP/1.1" 200 OK
-INFO:     127.0.0.1:43354 - "GET /openapi.json HTTP/1.1" 200 OK
-Angle is -88.9270
-cropper image
-0-3
-check image is cmnd
-Not detect image
-total_time:1.1282522678375244
-None
-INFO:     127.0.0.1:43356 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
-/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/cropper/cropper.py:171: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  id_card_box = self.best_bboxes[idx]
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/protocols/http/h11_impl.py", line 396, in run_asgi
-    result = await app(self.scope, self.receive, self.send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
-    return await self.app(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/applications.py", line 199, in __call__
-    await super().__call__(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/applications.py", line 112, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 181, in __call__
-    raise exc from None
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 159, in __call__
-    await self.app(scope, receive, _send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 82, in __call__
-    raise exc from None
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 71, in __call__
-    await self.app(scope, receive, sender)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 580, in __call__
-    await route.handle(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 241, in handle
-    await self.app(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 52, in app
-    response = await func(request)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 202, in app
-    dependant=dependant, values=values, is_coroutine=is_coroutine
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 148, in run_endpoint_function
-    return await dependant.call(**values)
-  File "/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/api/v1/endpoints/ekyc.py", line 16, in detect_with_stream
-    return CustomerResponse(**response)
-TypeError: ModelMetaclass object argument after ** must be a mapping, not NoneType
-Angle is -88.9270
-cropper image
-0-3
-check image is cmnd
-Not detect image
-total_time:0.9610569477081299
-None
-INFO:     127.0.0.1:43552 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/protocols/http/h11_impl.py", line 396, in run_asgi
-    result = await app(self.scope, self.receive, self.send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
-    return await self.app(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/applications.py", line 199, in __call__
-    await super().__call__(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/applications.py", line 112, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 181, in __call__
-    raise exc from None
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 159, in __call__
-    await self.app(scope, receive, _send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 82, in __call__
-    raise exc from None
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 71, in __call__
-    await self.app(scope, receive, sender)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 580, in __call__
-    await route.handle(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 241, in handle
-    await self.app(scope, receive, send)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 52, in app
-    response = await func(request)
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 202, in app
-    dependant=dependant, values=values, is_coroutine=is_coroutine
-  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 148, in run_endpoint_function
-    return await dependant.call(**values)
-  File "/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/api/v1/endpoints/ekyc.py", line 16, in detect_with_stream
-    return CustomerResponse(**response)
-TypeError: ModelMetaclass object argument after ** must be a mapping, not NoneType
-Angle is -66.0116
-cropper image
-INFO:     127.0.0.1:43676 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:41706 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 200 OK
 cropper image
 1-2
-[{'image': array([[[183, 186, 177],
-        [183, 187, 178],
-        [183, 188, 178],
+check image is cmnd
+cropper image
+{'idc': '174569190', 'fullname': 'ĐẶNG VĂN NAM', 'dob': '28-10-1996', 'sex': '', 'ethnicity': '', 'national': '', 'country': 'Xã Hoằng Xuân, Huyện Hoàng Hóa, Thanh Hóa', 'address': 'Xã Hoằng Xuân, Huyện Hoàng Hóa, Thanh Hóa'}
+INFO:     127.0.0.1:41706 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+cropper image
+check image is cmnd
+cropper image
+{'idc': '174572392', 'fullname': 'LÊ ĐANH THẮNG', 'dob': '19-02-1998', 'sex': '', 'ethnicity': '', 'national': '', 'country': 'Xã Hoằng Quỳ, Huyện Hoàng Hóa, Thanh Hóa', 'address': 'Xã Hoằng Quỳ, Huyện Hoằng Hóa, Thanh Hóa'}
+INFO:     127.0.0.1:41710 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+cropper image
+check image is cmnd
+cropper image
+{'idc': '212282120', 'fullname': 'TRƯƠNG MINH HIẾU', 'dob': '26-12-1990', 'sex': '', 'ethnicity': '', 'national': '', 'country': 'Hoài Châu Bắc, Hoài Nhơn, Bình Định', 'address': 'Phổ Châu, Đức Phổ, Quảng Ngãi'}
+INFO:     127.0.0.1:41716 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is -80.0423
+cropper image
+1-2
+[{'image': array([[[187, 189, 189],
+        [186, 188, 188],
+        [185, 187, 187],
         ...,
-        [162, 171, 174],
-        [162, 171, 174],
-        [163, 172, 175]],
+        [204, 202, 213],
+        [203, 201, 211],
+        [202, 201, 211]],
 
-       [[181, 185, 176],
-        [181, 185, 176],
-        [181, 186, 177],
+       [[186, 188, 188],
+        [185, 188, 188],
+        [184, 187, 188],
         ...,
-        [162, 171, 174],
-        [162, 170, 173],
-        [163, 171, 174]],
+        [204, 202, 212],
+        [202, 201, 211],
+        [201, 200, 210]],
 
-       [[179, 182, 173],
-        [179, 183, 174],
-        [179, 184, 174],
+       [[184, 187, 188],
+        [183, 187, 188],
+        [183, 186, 188],
         ...,
-        [162, 171, 174],
-        [162, 170, 173],
-        [163, 171, 174]],
+        [203, 201, 212],
+        [202, 200, 211],
+        [201, 199, 210]],
 
        ...,
 
-       [[181, 185, 171],
-        [181, 185, 171],
-        [183, 187, 173],
+       [[191, 189, 190],
+        [193, 191, 192],
+        [195, 193, 194],
         ...,
-        [161, 172, 176],
-        [161, 171, 176],
-        [160, 170, 175]],
+        [197, 195, 206],
+        [196, 194, 205],
+        [196, 194, 205]],
 
-       [[181, 185, 171],
-        [182, 186, 172],
-        [184, 189, 174],
+       [[194, 192, 193],
+        [195, 193, 194],
+        [196, 194, 195],
         ...,
-        [162, 173, 177],
-        [161, 172, 176],
-        [160, 170, 175]],
+        [196, 194, 205],
+        [196, 194, 205],
+        [195, 193, 204]],
 
-       [[181, 185, 171],
-        [184, 188, 174],
-        [186, 190, 176],
+       [[197, 195, 196],
+        [197, 195, 196],
+        [197, 195, 196],
         ...,
-        [162, 173, 177],
-        [161, 172, 176],
-        [160, 170, 175]]], dtype=uint8), 'score': 0.9997410774230957}]
-{'idc': '001198017205', 'fullname': 'NGUYỄN NGỌC QUÍ', 'dob': '12/06/2003', 'sex': 'nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Cao Xá, Bắc Hà, Lạng Giang, ', 'address': 'Thôn Nam Kì, Bắc Hà, Bắc Hà, Lạng Giang'}
-INFO:     127.0.0.1:43880 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
-INFO:     127.0.0.1:44040 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
-INFO:     127.0.0.1:48282 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
-INFO:     127.0.0.1:50002 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 405 Method Not Allowed
+        [196, 194, 205],
+        [195, 193, 204],
+        [195, 193, 204]]], dtype=uint8), 'score': 0.9995357394218445}]
+{'idc': '001199016793', 'fullname': 'TRƯƠNG THỊ MỸ HẠNH', 'dob': '25/01/1999', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Thanh Khê, Đà Nẫng, ', 'address': 'Xuân Đoài, Phù Linh, Sóc Sơn, Hà Nội'}
+INFO:     127.0.0.1:41720 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is 3.4019
+cropper image
+[{'image': array([[[182, 186, 191],
+        [182, 186, 190],
+        [182, 186, 190],
+        ...,
+        [184, 189, 203],
+        [184, 189, 203],
+        [184, 189, 203]],
+
+       [[182, 186, 191],
+        [182, 187, 191],
+        [182, 186, 190],
+        ...,
+        [184, 189, 203],
+        [184, 189, 203],
+        [184, 189, 203]],
+
+       [[181, 186, 191],
+        [182, 187, 191],
+        [181, 186, 191],
+        ...,
+        [184, 189, 203],
+        [184, 189, 203],
+        [183, 189, 202]],
+
+       ...,
+
+       [[182, 189, 198],
+        [181, 189, 197],
+        [181, 188, 197],
+        ...,
+        [182, 187, 201],
+        [181, 187, 201],
+        [181, 187, 201]],
+
+       [[183, 189, 197],
+        [182, 189, 197],
+        [182, 189, 197],
+        ...,
+        [182, 188, 202],
+        [182, 188, 202],
+        [182, 187, 201]],
+
+       [[182, 189, 197],
+        [181, 188, 196],
+        [181, 188, 196],
+        ...,
+        [182, 188, 202],
+        [182, 188, 202],
+        [182, 188, 202]]], dtype=uint8), 'score': 0.9976027011871338}]
+{'idc': '001302004651', 'fullname': 'NGUYỄN MINH QUÂN', 'dob': '09/03/2006', 'sex': 'nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'HÀ NỘI, ', 'address': 'Hoàn Kiếm, Hà Nội, '}
+INFO:     127.0.0.1:41756 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42208 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 200 OK
+cropper image
+[{'image': array([[[201, 197, 188],
+        [196, 192, 182],
+        [187, 183, 173],
+        ...,
+        [173, 172, 170],
+        [175, 174, 172],
+        [175, 174, 172]],
+
+       [[197, 193, 184],
+        [191, 187, 178],
+        [182, 178, 168],
+        ...,
+        [171, 170, 168],
+        [172, 171, 169],
+        [171, 169, 167]],
+
+       [[189, 186, 177],
+        [185, 181, 172],
+        [178, 174, 164],
+        ...,
+        [169, 168, 165],
+        [169, 168, 166],
+        [167, 166, 164]],
+
+       ...,
+
+       [[177, 173, 157],
+        [177, 174, 157],
+        [178, 176, 158],
+        ...,
+        [162, 161, 159],
+        [164, 163, 161],
+        [166, 165, 163]],
+
+       [[181, 177, 162],
+        [182, 179, 162],
+        [183, 181, 162],
+        ...,
+        [162, 161, 159],
+        [164, 163, 161],
+        [166, 165, 163]],
+
+       [[186, 181, 166],
+        [187, 184, 166],
+        [188, 185, 166],
+        ...,
+        [162, 161, 159],
+        [164, 163, 161],
+        [167, 166, 164]]], dtype=uint8), 'score': 0.9990842342376709}]
+{'idc': '048197057769', 'fullname': 'TÔ DIỆP THY', 'dob': '12/08/1997', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Hải Châu, Đà Nắng, ', 'address': '216 Huỳnh Tấn Phát, Hòa Cường Nam, Hải Chậu, Đà Nẳng'}
+INFO:     127.0.0.1:42208 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is -80.0423
+cropper image
+1-2
+[{'image': array([[[187, 189, 189],
+        [186, 188, 188],
+        [185, 187, 187],
+        ...,
+        [204, 202, 213],
+        [203, 201, 211],
+        [202, 201, 211]],
+
+       [[186, 188, 188],
+        [185, 188, 188],
+        [184, 187, 188],
+        ...,
+        [204, 202, 212],
+        [202, 201, 211],
+        [201, 200, 210]],
+
+       [[184, 187, 188],
+        [183, 187, 188],
+        [183, 186, 188],
+        ...,
+        [203, 201, 212],
+        [202, 200, 211],
+        [201, 199, 210]],
+
+       ...,
+
+       [[191, 189, 190],
+        [193, 191, 192],
+        [195, 193, 194],
+        ...,
+        [197, 195, 206],
+        [196, 194, 205],
+        [196, 194, 205]],
+
+       [[194, 192, 193],
+        [195, 193, 194],
+        [196, 194, 195],
+        ...,
+        [196, 194, 205],
+        [196, 194, 205],
+        [195, 193, 204]],
+
+       [[197, 195, 196],
+        [197, 195, 196],
+        [197, 195, 196],
+        ...,
+        [196, 194, 205],
+        [195, 193, 204],
+        [195, 193, 204]]], dtype=uint8), 'score': 0.9995357394218445}]
+{'idc': '001199016793', 'fullname': 'TRƯƠNG THỊ MỸ HẠNH', 'dob': '25/01/1999', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Thanh Khê, Đà Nẫng, ', 'address': 'Xuân Đoài, Phù Linh, Sóc Sơn, Hà Nội'}
+INFO:     127.0.0.1:42214 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42630 - "OPTIONS /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is -80.0423
+cropper image
+1-2
+[{'image': array([[[187, 189, 189],
+        [186, 188, 188],
+        [185, 187, 187],
+        ...,
+        [204, 202, 213],
+        [203, 201, 211],
+        [202, 201, 211]],
+
+       [[186, 188, 188],
+        [185, 188, 188],
+        [184, 187, 188],
+        ...,
+        [204, 202, 212],
+        [202, 201, 211],
+        [201, 200, 210]],
+
+       [[184, 187, 188],
+        [183, 187, 188],
+        [183, 186, 188],
+        ...,
+        [203, 201, 212],
+        [202, 200, 211],
+        [201, 199, 210]],
+
+       ...,
+
+       [[191, 189, 190],
+        [193, 191, 192],
+        [195, 193, 194],
+        ...,
+        [197, 195, 206],
+        [196, 194, 205],
+        [196, 194, 205]],
+
+       [[194, 192, 193],
+        [195, 193, 194],
+        [196, 194, 195],
+        ...,
+        [196, 194, 205],
+        [196, 194, 205],
+        [195, 193, 204]],
+
+       [[197, 195, 196],
+        [197, 195, 196],
+        [197, 195, 196],
+        ...,
+        [196, 194, 205],
+        [195, 193, 204],
+        [195, 193, 204]]], dtype=uint8), 'score': 0.9995357394218445}]
+{'idc': '001199016793', 'fullname': 'TRƯƠNG THỊ MỸ HẠNH', 'dob': '25/01/1999', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Thanh Khê, Đà Nẫng, ', 'address': 'Xuân Đoài, Phù Linh, Sóc Sơn, Hà Nội'}
+INFO:     127.0.0.1:42630 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is -80.0423
+cropper image
+1-2
+[{'image': array([[[187, 189, 189],
+        [186, 188, 188],
+        [185, 187, 187],
+        ...,
+        [204, 202, 213],
+        [203, 201, 211],
+        [202, 201, 211]],
+
+       [[186, 188, 188],
+        [185, 188, 188],
+        [184, 187, 188],
+        ...,
+        [204, 202, 212],
+        [202, 201, 211],
+        [201, 200, 210]],
+
+       [[184, 187, 188],
+        [183, 187, 188],
+        [183, 186, 188],
+        ...,
+        [203, 201, 212],
+        [202, 200, 211],
+        [201, 199, 210]],
+
+       ...,
+
+       [[191, 189, 190],
+        [193, 191, 192],
+        [195, 193, 194],
+        ...,
+        [197, 195, 206],
+        [196, 194, 205],
+        [196, 194, 205]],
+
+       [[194, 192, 193],
+        [195, 193, 194],
+        [196, 194, 195],
+        ...,
+        [196, 194, 205],
+        [196, 194, 205],
+        [195, 193, 204]],
+
+       [[197, 195, 196],
+        [197, 195, 196],
+        [197, 195, 196],
+        ...,
+        [196, 194, 205],
+        [195, 193, 204],
+        [195, 193, 204]]], dtype=uint8), 'score': 0.9995357394218445}]
+{'idc': '001199016793', 'fullname': 'TRƯƠNG THỊ MỸ HẠNH', 'dob': '25/01/1999', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Thanh Khê, Đà Nẫng, ', 'address': 'Xuân Đoài, Phù Linh, Sóc Sơn, Hà Nội'}
+INFO:     127.0.0.1:42670 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+cropper image
+1-2
+check image is cmnd
+cropper image
+{'idc': '174569190', 'fullname': 'ĐẶNG VĂN NAM', 'dob': '28-10-1996', 'sex': '', 'ethnicity': '', 'national': '', 'country': 'Xã Hoằng Xuân, Huyện Hoàng Hóa, Thanh Hóa', 'address': 'Xã Hoằng Xuân, Huyện Hoàng Hóa, Thanh Hóa'}
+INFO:     127.0.0.1:42676 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is 3.4019
+cropper image
+[{'image': array([[[182, 186, 191],
+        [182, 186, 190],
+        [182, 186, 190],
+        ...,
+        [184, 189, 203],
+        [184, 189, 203],
+        [184, 189, 203]],
+
+       [[182, 186, 191],
+        [182, 187, 191],
+        [182, 186, 190],
+        ...,
+        [184, 189, 203],
+        [184, 189, 203],
+        [184, 189, 203]],
+
+       [[181, 186, 191],
+        [182, 187, 191],
+        [181, 186, 191],
+        ...,
+        [184, 189, 203],
+        [184, 189, 203],
+        [183, 189, 202]],
+
+       ...,
+
+       [[182, 189, 198],
+        [181, 189, 197],
+        [181, 188, 197],
+        ...,
+        [182, 187, 201],
+        [181, 187, 201],
+        [181, 187, 201]],
+
+       [[183, 189, 197],
+        [182, 189, 197],
+        [182, 189, 197],
+        ...,
+        [182, 188, 202],
+        [182, 188, 202],
+        [182, 187, 201]],
+
+       [[182, 189, 197],
+        [181, 188, 196],
+        [181, 188, 196],
+        ...,
+        [182, 188, 202],
+        [182, 188, 202],
+        [182, 188, 202]]], dtype=uint8), 'score': 0.9976027011871338}]
+{'idc': '001302004651', 'fullname': 'NGUYỄN MINH QUÂN', 'dob': '09/03/2006', 'sex': 'nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'HÀ NỘI, ', 'address': 'Hoàn Kiếm, Hà Nội, '}
+INFO:     127.0.0.1:42702 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+cropper image
+[{'image': array([[[141, 145, 169],
+        [140, 144, 167],
+        [139, 145, 165],
+        ...,
+        [161, 165, 190],
+        [161, 165, 190],
+        [162, 166, 191]],
+
+       [[138, 142, 167],
+        [137, 141, 164],
+        [136, 141, 161],
+        ...,
+        [158, 162, 187],
+        [159, 163, 188],
+        [160, 164, 189]],
+
+       [[134, 138, 162],
+        [132, 136, 159],
+        [132, 137, 157],
+        ...,
+        [156, 159, 185],
+        [156, 160, 185],
+        [158, 162, 187]],
+
+       ...,
+
+       [[151, 156, 175],
+        [150, 155, 174],
+        [150, 155, 174],
+        ...,
+        [164, 168, 193],
+        [164, 168, 193],
+        [163, 167, 192]],
+
+       [[146, 151, 170],
+        [147, 151, 171],
+        [148, 153, 172],
+        ...,
+        [163, 167, 192],
+        [163, 167, 192],
+        [162, 166, 191]],
+
+       [[149, 154, 173],
+        [150, 155, 173],
+        [150, 155, 174],
+        ...,
+        [162, 166, 191],
+        [162, 166, 191],
+        [161, 165, 191]]], dtype=uint8), 'score': 0.9986145496368408}]
+{'idc': '026199025450', 'fullname': 'NGUYỄN THỊ NHƯ', 'dob': '08/02/1999', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Trung Nguyên, Yên Lạc, Vĩnh Phúc', 'address': 'Thiệu Tổ, Trung Nguyên, Yên Lạc, Vĩnh Phúc'}
+INFO:     127.0.0.1:42706 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+Angle is -88.9270
+cropper image
+0-3
+check image is cmnd
+Not detect image
+total_time:1.2614762783050537
+None
+INFO:     127.0.0.1:42710 - "POST /ekyc/detectwithstream HTTP/1.1" 500 Internal Server Error
+/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/cropper/cropper.py:171: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  id_card_box = self.best_bboxes[idx]
+/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/cropper/cropper.py:79: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  top_right_box = self.best_bboxes[id1]
+/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/cropper/cropper.py:80: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  bottom_left_box = self.best_bboxes[id2]
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/protocols/http/h11_impl.py", line 396, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py", line 45, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/applications.py", line 199, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/cors.py", line 86, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/middleware/cors.py", line 142, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc from None
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 580, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 241, in handle
+    await self.app(scope, receive, send)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/starlette/routing.py", line 52, in app
+    response = await func(request)
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 202, in app
+    dependant=dependant, values=values, is_coroutine=is_coroutine
+  File "/home/mjnk9xw/anaconda3/lib/python3.7/site-packages/fastapi/routing.py", line 148, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/api/v1/endpoints/ekyc.py", line 16, in detect_with_stream
+    return CustomerResponse(**response)
+TypeError: ModelMetaclass object argument after ** must be a mapping, not NoneType
+cropper image
+[{'image': array([[[201, 197, 188],
+        [196, 192, 182],
+        [187, 183, 173],
+        ...,
+        [173, 172, 170],
+        [175, 174, 172],
+        [175, 174, 172]],
+
+       [[197, 193, 184],
+        [191, 187, 178],
+        [182, 178, 168],
+        ...,
+        [171, 170, 168],
+        [172, 171, 169],
+        [171, 169, 167]],
+
+       [[189, 186, 177],
+        [185, 181, 172],
+        [178, 174, 164],
+        ...,
+        [169, 168, 165],
+        [169, 168, 166],
+        [167, 166, 164]],
+
+       ...,
+
+       [[177, 173, 157],
+        [177, 174, 157],
+        [178, 176, 158],
+        ...,
+        [162, 161, 159],
+        [164, 163, 161],
+        [166, 165, 163]],
+
+       [[181, 177, 162],
+        [182, 179, 162],
+        [183, 181, 162],
+        ...,
+        [162, 161, 159],
+        [164, 163, 161],
+        [166, 165, 163]],
+
+       [[186, 181, 166],
+        [187, 184, 166],
+        [188, 185, 166],
+        ...,
+        [162, 161, 159],
+        [164, 163, 161],
+        [167, 166, 164]]], dtype=uint8), 'score': 0.9990842342376709}]
+{'idc': '048197057769', 'fullname': 'TÔ DIỆP THY', 'dob': '12/08/1997', 'sex': 'Nữ', 'ethnicity': '', 'national': 'Việt Nam', 'country': 'Hải Châu, Đà Nắng, ', 'address': '216 Huỳnh Tấn Phát, Hòa Cường Nam, Hải Chậu, Đà Nẳng'}
+INFO:     127.0.0.1:42716 - "POST /ekyc/detectwithstream HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7973]

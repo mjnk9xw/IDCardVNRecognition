@@ -96,9 +96,9 @@ def get_anchors(anchors_path, tiny=False):
 def reorient_image(im):
     try:
         image_exif = im._getexif()
-        print("image_exif = ",image_exif)
+        # print("image_exif = ",image_exif)
         image_orientation = image_exif[274]
-        print(image_orientation)
+        # print(image_orientation)
         if image_orientation in (2, '2'):
             return im.transpose(Image.FLIP_LEFT_RIGHT)
         elif image_orientation in (3, '3'):

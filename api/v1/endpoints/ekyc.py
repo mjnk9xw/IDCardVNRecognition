@@ -12,6 +12,7 @@ async def detect_with_stream(file: UploadFile = File(...), ekycsvc: EkycService 
         response = ekycsvc.predict(file.file)
         print(response)
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=f'Server error with {e}')
     return CustomerResponse(**response)
 
@@ -23,3 +24,4 @@ async def detect_with_base64(req: CustomerRequestBase64, ekycsvc: EkycService = 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f'Server error with {e}')
     return CustomerResponse(**response)
+

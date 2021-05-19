@@ -55,3 +55,117 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 2021-05-17 04:46:58.997337: I tensorflow_serving/model_servers/server.cc:393] Running gRPC ModelServer at 0.0.0.0:8500 ...
 [evhttp_server.cc : 245] NET_LOG: Entering the event loop ...
 2021-05-17 04:46:58.998467: I tensorflow_serving/model_servers/server.cc:414] Exporting HTTP/REST API at:localhost:8501 ...
+2021-05-18 08:02:00.108703: I tensorflow_serving/model_servers/server_core.cc:465] Adding/updating models.
+2021-05-18 08:02:00.120132: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: cropper_model
+2021-05-18 08:02:00.120186: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: detector_model
+2021-05-18 08:02:00.120211: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: cropper_cmnd_model
+2021-05-18 08:02:00.120231: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: detector_cmnd_model
+2021-05-18 08:02:00.235976: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: detector_cmnd_model version: 1}
+2021-05-18 08:02:00.236061: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: detector_cmnd_model version: 1}
+2021-05-18 08:02:00.236100: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: detector_cmnd_model version: 1}
+2021-05-18 08:02:00.237700: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1
+2021-05-18 08:02:00.415026: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-18 08:02:00.437658: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: detector_model version: 1}
+2021-05-18 08:02:00.437879: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1
+2021-05-18 08:02:00.438096: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: detector_model version: 1}
+2021-05-18 08:02:00.438232: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: detector_model version: 1}
+2021-05-18 08:02:00.438486: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1
+2021-05-18 08:02:00.441329: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: cropper_model version: 1}
+2021-05-18 08:02:00.441459: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: cropper_model version: 1}
+2021-05-18 08:02:00.441533: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: cropper_model version: 1}
+2021-05-18 08:02:00.442545: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1
+2021-05-18 08:02:00.443703: I external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-05-18 08:02:00.510890: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: cropper_cmnd_model version: 1}
+2021-05-18 08:02:00.566039: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: cropper_cmnd_model version: 1}
+2021-05-18 08:02:00.566073: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: cropper_cmnd_model version: 1}
+2021-05-18 08:02:00.566116: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1
+2021-05-18 08:02:00.983069: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-18 08:02:00.983137: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1
+2021-05-18 08:02:01.005438: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-18 08:02:01.008118: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1
+2021-05-18 08:02:01.119528: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-18 08:02:01.121900: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1
+2021-05-18 08:02:01.381178: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-18 08:02:01.390126: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-18 08:02:01.396857: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-18 08:02:01.472006: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-18 08:02:01.522953: I external/org_tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-05-18 08:02:06.076141: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1
+2021-05-18 08:02:06.292544: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 5726418 microseconds.
+2021-05-18 08:02:06.599617: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1/assets.extra/tf_serving_warmup_requests
+2021-05-18 08:02:06.715236: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: cropper_cmnd_model version: 1}
+2021-05-18 08:02:07.134062: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1
+2021-05-18 08:02:07.203083: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1
+2021-05-18 08:02:07.208956: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1
+2021-05-18 08:02:07.378129: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 6935593 microseconds.
+2021-05-18 08:02:07.394945: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 7157245 microseconds.
+2021-05-18 08:02:07.400781: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 6962298 microseconds.
+2021-05-18 08:02:07.450280: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1/assets.extra/tf_serving_warmup_requests
+2021-05-18 08:02:07.451713: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1/assets.extra/tf_serving_warmup_requests
+2021-05-18 08:02:07.452429: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1/assets.extra/tf_serving_warmup_requests
+2021-05-18 08:02:07.463972: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: detector_model version: 1}
+2021-05-18 08:02:07.464249: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: cropper_model version: 1}
+2021-05-18 08:02:07.505998: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: detector_cmnd_model version: 1}
+2021-05-18 08:02:07.512566: I tensorflow_serving/model_servers/server_core.cc:486] Finished adding/updating models
+2021-05-18 08:02:07.583169: I tensorflow_serving/model_servers/server.cc:367] Profiler service is enabled
+2021-05-18 08:02:07.710576: I tensorflow_serving/model_servers/server.cc:393] Running gRPC ModelServer at 0.0.0.0:8500 ...
+2021-05-18 08:02:07.724176: I tensorflow_serving/model_servers/server.cc:414] Exporting HTTP/REST API at:localhost:8501 ...
+[evhttp_server.cc : 245] NET_LOG: Entering the event loop ...
+2021-05-19 22:27:02.178080: I tensorflow_serving/model_servers/server_core.cc:465] Adding/updating models.
+2021-05-19 22:27:02.178874: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: cropper_model
+2021-05-19 22:27:02.178953: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: detector_model
+2021-05-19 22:27:02.178993: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: cropper_cmnd_model
+2021-05-19 22:27:02.179029: I tensorflow_serving/model_servers/server_core.cc:591]  (Re-)adding model: detector_cmnd_model
+2021-05-19 22:27:02.282734: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: detector_cmnd_model version: 1}
+2021-05-19 22:27:02.282877: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: detector_cmnd_model version: 1}
+2021-05-19 22:27:02.282957: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: detector_cmnd_model version: 1}
+2021-05-19 22:27:02.291960: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1
+2021-05-19 22:27:02.379360: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: detector_model version: 1}
+2021-05-19 22:27:02.379405: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: detector_model version: 1}
+2021-05-19 22:27:02.379422: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: detector_model version: 1}
+2021-05-19 22:27:02.379463: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1
+2021-05-19 22:27:02.442364: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-19 22:27:02.442439: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1
+2021-05-19 22:27:02.443484: I external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-05-19 22:27:02.479460: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: cropper_model version: 1}
+2021-05-19 22:27:02.479531: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: cropper_model version: 1}
+2021-05-19 22:27:02.479551: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: cropper_model version: 1}
+2021-05-19 22:27:02.479600: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1
+2021-05-19 22:27:02.526073: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-19 22:27:02.526125: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1
+2021-05-19 22:27:02.579606: I tensorflow_serving/core/basic_manager.cc:740] Successfully reserved resources to load servable {name: cropper_cmnd_model version: 1}
+2021-05-19 22:27:02.579658: I tensorflow_serving/core/loader_harness.cc:66] Approving load for servable version {name: cropper_cmnd_model version: 1}
+2021-05-19 22:27:02.579685: I tensorflow_serving/core/loader_harness.cc:74] Loading servable version {name: cropper_cmnd_model version: 1}
+2021-05-19 22:27:02.579729: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:38] Reading SavedModel from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1
+2021-05-19 22:27:02.625873: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-19 22:27:02.625933: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1
+2021-05-19 22:27:02.697304: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:90] Reading meta graph with tags { serve }
+2021-05-19 22:27:02.697371: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:132] Reading SavedModel debug info (if present) from: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1
+2021-05-19 22:27:02.740879: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-19 22:27:02.791991: I external/org_tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-05-19 22:27:02.811317: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-19 22:27:02.929452: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-19 22:27:02.949083: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:206] Restoring SavedModel bundle.
+2021-05-19 22:27:04.313032: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1
+2021-05-19 22:27:04.457998: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 2078529 microseconds.
+2021-05-19 22:27:04.490116: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detector/1/assets.extra/tf_serving_warmup_requests
+2021-05-19 22:27:04.492255: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: detector_model version: 1}
+2021-05-19 22:27:04.503242: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1
+2021-05-19 22:27:04.527649: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1
+2021-05-19 22:27:04.617209: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 2037475 microseconds.
+2021-05-19 22:27:04.652835: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 2360909 microseconds.
+2021-05-19 22:27:04.654027: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/croppercmnd/1/assets.extra/tf_serving_warmup_requests
+2021-05-19 22:27:04.656209: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: cropper_cmnd_model version: 1}
+2021-05-19 22:27:04.671137: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:190] Running initialization op on SavedModel bundle at path: /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1
+2021-05-19 22:27:04.692527: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/detectorcmnd/1/assets.extra/tf_serving_warmup_requests
+2021-05-19 22:27:04.699076: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: detector_cmnd_model version: 1}
+2021-05-19 22:27:04.815239: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:277] SavedModel load for tags { serve }; Status: success: OK. Took 2335636 microseconds.
+2021-05-19 22:27:04.850738: I tensorflow_serving/servables/tensorflow/saved_model_warmup_util.cc:59] No warmup data file found at /home/mjnk9xw/Documents/DoAnTN/IDCardVNRecognition/models/cropper/1/assets.extra/tf_serving_warmup_requests
+2021-05-19 22:27:04.852898: I tensorflow_serving/core/loader_harness.cc:87] Successfully loaded servable version {name: cropper_model version: 1}
+2021-05-19 22:27:04.854213: I tensorflow_serving/model_servers/server_core.cc:486] Finished adding/updating models
+2021-05-19 22:27:04.861949: I tensorflow_serving/model_servers/server.cc:367] Profiler service is enabled
+2021-05-19 22:27:04.868227: I tensorflow_serving/model_servers/server.cc:393] Running gRPC ModelServer at 0.0.0.0:8500 ...
+2021-05-19 22:27:04.870537: I tensorflow_serving/model_servers/server.cc:414] Exporting HTTP/REST API at:localhost:8501 ...
+[evhttp_server.cc : 245] NET_LOG: Entering the event loop ...

@@ -151,8 +151,6 @@ class Detector:
 
         self.info_images = infor_images
 
-
-
     def set_best_bboxes(self, pred, original_width, original_height, iou_threshold):
         self.best_bboxes = self.decode_prediction(pred, original_width, original_height, iou_threshold)
 

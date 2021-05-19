@@ -30,7 +30,7 @@ class Predictor():
         self.model = model
         self.vocab = vocab
 
-    def predict(self, img):
+    def predict(self, img, return_prob=False):
         img = self.preprocess_input(img)
         img = np.expand_dims(img, axis=0)
         img = torch.FloatTensor(img)
@@ -39,14 +39,18 @@ class Predictor():
         if self.config['predictor']['beamsearch']:
             sent = translate_beam_search(img, self.model)
             s = sent
+            prob = None
         else:
-            s = translate(img, self.model)[0].tolist()
+            s, prob = translate(img, self.model)
+            s = s[0].tolist()
+            prob = prob[0]
 
         s = self.vocab.decode(s)
 
-        return s
-
-
+        if return_prob:
+            return s, prob
+        else:
+            return s
 
     def batch_predict(self, images):
         """
@@ -64,7 +68,6 @@ class Predictor():
         sequences = self.vocab.batch_decode(sents)
         return sequences
 
-
     def preprocess_input(self, image):
         """
         param: image: ndarray of image
@@ -76,6 +79,7 @@ class Predictor():
         img = np.transpose(img, (2, 0, 1))
         img = img/255
         return img
+   
     def batch_process(self, images):
         batch = []
         for image in images:
