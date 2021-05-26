@@ -19,6 +19,7 @@ def load_image(file):
     #     image = image.convert('RGB')
     image = np.array(image)
     image = rotate(image)
+    cv2.imwrite('storage/a.jpg', image)
     return image
 
 
@@ -50,7 +51,6 @@ def rotate(image):
     angles = []
 
     for [[x1, y1, x2, y2]] in lines:
-        # cv2.line(image, (x1, y1), (x2, y2), (255, 0, 0), 3)
         angle = math.degrees(math.atan2(y2 - y1, x2 - x1))
         angles.append(angle)
 
@@ -59,7 +59,7 @@ def rotate(image):
         return image
     img_rotated = ndimage.rotate(image, median_angle)
 
-    print(f"Angle is {median_angle:.04f}")
+    # print(f"Angle is {median_angle:.04f}")
     return img_rotated
 
 

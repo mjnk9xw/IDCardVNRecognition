@@ -46,6 +46,8 @@ class Detector:
         bboxes = np.hstack((x_mins, y_mins, x_maxs, y_maxs, scores, classes))
         best_bboxes = nms(bboxes, iou_threshold=iou_threshold)
         best_bboxes = np.array(best_bboxes)
+        if (len(best_bboxes) < 4):
+            return best_bboxes
 
         # the maximum bboxes of address_info is 4 bboxes
         classes = best_bboxes[:, 5].astype(int)
@@ -62,10 +64,13 @@ class Detector:
         return final_best_bboxes
 
     def decode_infor(self):
+        infor = {}
+        if (len(self.best_bboxes) < 4):
+            return infor
         classes = self.best_bboxes[:, 5].astype(int)
         label = {'0': 'id', '1': 'full_name', '2': 'date_of_birth', '3': 'sex', '4': 'quoc_tich' \
             , '5': 'dan_toc', '6': 'address_info', '7': 'chan_dung', '8': 'thoi_han'}
-        infor = {}
+       
         for i in range(len(classes)):
             key = label[str(classes[i])]
             if key not in infor.keys():

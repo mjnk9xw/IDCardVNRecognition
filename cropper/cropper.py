@@ -23,10 +23,10 @@ class Cropper:
 
         # coordinates[i] : (y_min, x_min, y_max, x_max)
         coordinates = pred[:, 0:4]
-        y_mins = coordinates[:, 0:1] * original_height + 8
-        x_mins = coordinates[:, 1:2] * original_width + 8
-        y_maxs = coordinates[:, 2:3] * original_height + 8
-        x_maxs = coordinates[:, 3:4] * original_width + 8
+        y_mins = coordinates[:, 0:1] * original_height
+        x_mins = coordinates[:, 1:2] * original_width
+        y_maxs = coordinates[:, 2:3] * original_height + 20
+        x_maxs = coordinates[:, 3:4] * original_width + 20
 
         scores = pred[:, 4:9]
         classes = np.argmax(scores, axis=-1)
@@ -224,6 +224,7 @@ class Cropper:
 
     def set_image(self, original_image):
         points = self.convert_bbox_to_points()
+        # print("points = ",points)
         self.image_output = self.align_image(original_image, points=points)
 
     # set box len pred ok = 14

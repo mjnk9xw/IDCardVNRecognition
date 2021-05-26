@@ -123,12 +123,12 @@ class EkycService:
         if cccd_result is not None and 'id' in cccd_result and 'full_name' in cccd_result:
             return build_result(file,cccd_result, "CCCD",start)
         else:
-            print("check image is cmnd")
+            # print("check image is cmnd")
             cmnd_result = self.predictcmnd(image)
             if cmnd_result is not None and 'id' in cmnd_result:
                 return build_result(file,cmnd_result, "CMND",start)
             else:
-                print("Not detect image")
+                # print("Not detect image")
                 return {
                     # 'urlimg':"",
                     'idc': "",
@@ -169,6 +169,7 @@ class EkycService:
 
         except Exception as e:
             print(e)
+            return e
 
         cropper = Cropper()
         cropper.set_best_bboxes(result, original_width=original_width, original_height=original_height, iou_threshold=0.5)
@@ -183,10 +184,9 @@ class EkycService:
         else:
             # print("cropper image")
             cropper.set_image(original_image=original_image)
-
             # output of cropper part
             aligned_image = getattr(cropper, "image_output")
-            # cv2.imwrite('app/static/aligned_images/' + filename, aligned_image)
+            cv2.imwrite('storage/b.jpg', aligned_image)
             aligned_image = cv2.cvtColor(aligned_image, cv2.COLOR_BGR2RGB)
 
         """
@@ -214,7 +214,7 @@ class EkycService:
             result = np.array(result).reshape((-1, 13))
 
         except Exception as e:
-            print(e)
+            print("Detect = ",e)
         
         detector = Detector()
         detector.set_best_bboxes(result, original_width=original_width, original_height=original_height, iou_threshold=0.5)
@@ -249,26 +249,26 @@ class EkycService:
             result = np.array(result).reshape((-1, 9))
 
         except Exception as e:
-            print(e)
+            print("Cropper cmnd = ",e)
 
         cropper = Cropper()
         cropper.set_best_bboxes(result, original_width=original_width, original_height=original_height, iou_threshold=0.5)
 
         # respone to client if image is invalid
         if cropper.respone_client(threshold_idcard=0.8) == -1:
-            print(cropper.respone_client(threshold_idcard=0.8))
+            # print(cropper.respone_client(threshold_idcard=0.8))
             return
         elif cropper.respone_client(threshold_idcard=0.8) == 0:
-            print("no cropper")
+            # print("no cropper")
             # cv2.imwrite('app/static/aligned_images/' + filename, original_image)
             aligned_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
         else:
-            print("cropper image")
+            # print("cropper image")
             cropper.set_image(original_image=original_image)
-
+            # print("Cropper cmnd end")
             # output of cropper part
             aligned_image = getattr(cropper, "image_output")
-            # cv2.imwrite('app/static/aligned_images/' + filename, aligned_image)
+            cv2.imwrite('storage/c.jpg', aligned_image)
             aligned_image = cv2.cvtColor(aligned_image, cv2.COLOR_BGR2RGB)
 
         """
@@ -291,12 +291,14 @@ class EkycService:
         request.inputs["input_1"].CopyFrom(tf.make_tensor_proto(img, dtype=np.float32, shape=img.shape))
 
         try:
+            # print("Detect cmnd = ok")
             result = self.stub.Predict(request, 10.0)
             result = result.outputs["tf_op_layer_concat_14"].float_val
             result = np.array(result).reshape((-1, 13))
+            # print("Detect cmnd = end")
 
         except Exception as e:
-            print(e)
+            print("Detect cmnd = ",e)
         
         detector = Detector()
         detector.set_best_bboxes(result, original_width=original_width, original_height=original_height, iou_threshold=0.5)

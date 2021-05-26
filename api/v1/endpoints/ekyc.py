@@ -10,9 +10,9 @@ router = APIRouter()
 async def detect_with_stream(file: UploadFile = File(...), ekycsvc: EkycService = Depends()):
     try:
         response = ekycsvc.predict(file.file)
-        print(response)
+        # print(response)
     except Exception as e:
-        print(e)
+        # print(e)
         raise HTTPException(status_code=500, detail=f'Server error with {e}')
     return CustomerResponse(**response)
 

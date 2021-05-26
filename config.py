@@ -8,7 +8,7 @@ class ProductionConfig(Config):
     pass
 
 class DevelopmentConfig(Config):
-    DEBUG = True
+    DEBUG = False
 
     IMAGE_UPLOADS = "./app/static/images"
 
